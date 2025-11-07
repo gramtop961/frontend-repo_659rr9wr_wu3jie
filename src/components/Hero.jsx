@@ -1,6 +1,7 @@
 import Spline from '@splinetool/react-spline';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
+import ParticleField from './ParticleField';
 
 export default function Hero() {
   const ref = useRef(null);
@@ -12,8 +13,11 @@ export default function Hero() {
     <section id="top" ref={ref} className="relative min-h-[92vh] sm:min-h-screen overflow-hidden">
       {/* 3D Animation */}
       <motion.div className="absolute inset-0" style={{ y, opacity }}>
-        <Spline scene="https://prod.spline.design/4cHQr84zOGAHOehh/scene.splinecode" style={{ width: '100%', height: '100%' }} />
+        <Spline scene="https://prod.spline.design/rvFZ5oikmZSIbmGQ/scene.splinecode" style={{ width: '100%', height: '100%' }} />
       </motion.div>
+
+      {/* Floating particle field (non-blocking, global ambience) */}
+      <ParticleField />
 
       {/* Animated ambient glows (non-blocking) */}
       <div className="pointer-events-none absolute inset-0">

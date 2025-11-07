@@ -1,16 +1,18 @@
 import { motion } from 'framer-motion';
 import { Award, User } from 'lucide-react';
+import MagneticCard from './MagneticCard';
 
 const certificates = [
   { name: 'Google UX Design', issuer: 'Coursera', year: '2023' },
   { name: 'Meta Front-End Developer', issuer: 'Coursera', year: '2024' },
   { name: 'AWS Cloud Practitioner', issuer: 'Amazon', year: '2022' },
+  { name: 'Framer Motion Mastery', issuer: 'UI Lab', year: '2024' },
 ];
 
 export default function AboutCertificates() {
   return (
     <section id="about" className="relative scroll-mt-24">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 py-20 sm:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 py-24 sm:py-32">
         <div className="grid gap-12 md:grid-cols-2">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -35,23 +37,22 @@ export default function AboutCertificates() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 p-6 sm:p-8 bg-white dark:bg-zinc-900"
+            className="grid gap-6"
           >
-            <div className="flex items-center gap-3">
-              <div className="h-9 w-9 grid place-items-center rounded-lg bg-zinc-100 dark:bg-zinc-800"><Award className="h-4 w-4" /></div>
-              <h3 className="text-xl sm:text-2xl font-semibold">Certificates</h3>
-            </div>
-            <ul className="mt-4 space-y-4">
-              {certificates.map((c) => (
-                <li key={c.name} className="flex items-center justify-between">
-                  <div>
-                    <p className="font-medium">{c.name}</p>
-                    <p className="text-sm text-zinc-600 dark:text-zinc-400">{c.issuer}</p>
+            {certificates.map((c, i) => (
+              <MagneticCard key={c.name} className="rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 p-6 sm:p-8 bg-white dark:bg-zinc-900">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <div className="h-9 w-9 grid place-items-center rounded-lg bg-zinc-100 dark:bg-zinc-800"><Award className="h-4 w-4" /></div>
+                    <div>
+                      <p className="font-medium">{c.name}</p>
+                      <p className="text-sm text-zinc-600 dark:text-zinc-400">{c.issuer}</p>
+                    </div>
                   </div>
                   <span className="text-xs px-2 py-1 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">{c.year}</span>
-                </li>
-              ))}
-            </ul>
+                </div>
+              </MagneticCard>
+            ))}
           </motion.div>
         </div>
       </div>

@@ -3,6 +3,7 @@ import Hero from './components/Hero';
 import Works from './components/Works';
 import AboutCertificates from './components/AboutCertificates';
 import MessageCV from './components/MessageCV';
+import SectionParallax from './components/SectionParallax';
 
 export default function App() {
   return (
@@ -10,9 +11,15 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
-        <Works />
-        <AboutCertificates />
-        <MessageCV />
+        <SectionParallax id="works">
+          <Works />
+        </SectionParallax>
+        <SectionParallax id="about">
+          <AboutCertificates />
+        </SectionParallax>
+        <SectionParallax id="message">
+          <MessageCV />
+        </SectionParallax>
       </main>
       <footer className="border-t border-zinc-200/70 dark:border-zinc-800/70">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 py-10 text-sm text-center text-zinc-600 dark:text-zinc-400">
